@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vedera Skincare – Skincare thuần chay & chăm sóc da minh bạch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-cream: #FAF9F5;
+      --bg-warm: #F4F2EC;
+      --green-dark: #193225;
+      --green-brand: #2D4A3E;
+      --green-subtle: #3C6450;
+      --green-light: #EAF0EB;
+      --text-main: #24332C;
+      --text-muted: #52665B;
+      --border-color: rgba(36, 51, 44, 0.1);
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background-color: var(--bg-cream); color: var(--text-main); line-height: 1.6; }
+    h1, h2, h3, h4, .serif { font-family: var(--font-display); letter-spacing: -0.01em; }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 24px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s; text-align: center; }
+    .btn-primary { background: var(--green-brand); color: #fff; border: none; }
+    .btn-primary:hover { background: #1E3A2B; }
+    .btn-secondary { background: #fff; color: var(--green-brand); border: 1px solid rgba(45,74,62,0.2); }
+    .btn-secondary:hover { background: #F3F1E9; }
+    .kicker { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.2px; color: var(--green-subtle); margin-bottom: 8px; }
+    .section-title { font-size: 32px; font-weight: 700; color: var(--green-dark); margin-bottom: 12px; }
+    .section-desc { font-size: 15px; color: var(--text-muted); max-width: 650px; margin-bottom: 40px; }
+    .section-center { text-align: center; }
+    .section-center .section-desc { margin-left: auto; margin-right: auto; }
+    .py-sec { padding: 65px 0; }
+    /* Header */
+    header { position: sticky; top: 0; background: rgba(250, 249, 245, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color); z-index: 100; padding: 14px 0; }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; }
+    .brand-logo { font-size: 22px; font-weight: 700; color: var(--green-dark); }
+    .nav-links { display: flex; align-items: center; gap: 24px; font-size: 14px; font-weight: 500; color: #465A50; }
+    .nav-links a:hover { color: var(--green-brand); }
+    /* Hero */
+    .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; align-items: center; }
+    .hero h1 { font-size: 42px; line-height: 1.18; color: var(--green-dark); margin-bottom: 20px; }
+    .hero p { font-size: 16px; color: var(--text-muted); line-height: 1.6; margin-bottom: 28px; }
+    .hero-card { background: #fff; padding: 14px; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: 0 12px 40px rgba(25,50,37,0.06); }
+    .hero-card img { width: 100%; border-radius: 12px; aspect-ratio: 4/3; object-fit: cover; display: block; }
+    /* Pillars */
+    .pillars-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .pillar-card { background: #fff; padding: 22px; border-radius: 12px; border: 1px solid var(--border-color); }
+    .pillar-card span { font-size: 11px; font-family: monospace; color: var(--green-brand); font-weight: 700; background: var(--green-light); padding: 2px 8px; border-radius: 4px; }
+    .pillar-card h3 { font-size: 18px; margin: 12px 0 6px 0; color: var(--green-dark); }
+    .pillar-card p { font-size: 13px; color: var(--text-muted); }
+    /* Concerns */
+    .concern-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 26px; }
+    .concern-card { background: #fff; padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); text-align: left; }
+    .concern-card .num { font-size: 11px; font-weight: 700; color: var(--green-subtle); background: var(--green-light); padding: 3px 8px; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
+    .concern-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; color: var(--green-dark); }
+    .concern-card p { font-size: 12px; color: var(--text-muted); }
+    .transition-box { background: #E9F0EA; border-radius: 14px; padding: 26px; text-align: center; border: 1px solid rgba(45,74,62,0.15); }
+    .transition-box h3 { font-size: 22px; color: #142B20; margin-bottom: 6px; }
+    .transition-box p { font-size: 13px; color: #3E5246; }
+    /* Product */
+    .product-box { background: #fff; border-radius: 16px; border: 1px solid var(--border-color); overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; }
+    .product-media { background: #EBE7DD; padding: 26px; display: flex; align-items: center; justify-content: center; }
+    .product-media img { width: 100%; border-radius: 12px; aspect-ratio: 4/3; object-fit: cover; }
+    .product-info { padding: 32px; display: flex; flex-direction: column; justify-content: space-between; }
+    .tabs-nav { display: flex; gap: 8px; margin: 16px 0; background: var(--bg-warm); padding: 4px; border-radius: 8px; }
+    .tab-btn { flex: 1; padding: 8px; font-size: 12px; font-weight: 600; border: none; background: transparent; cursor: pointer; border-radius: 6px; color: #5C7064; }
+    .tab-btn.active { background: #fff; color: var(--green-dark); box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+    .tab-pane { display: none; font-size: 13px; color: #3E5246; min-height: 140px; }
+    .tab-pane.active { display: block; }
+    .tab-pane li { margin-bottom: 6px; list-style-position: inside; }
+    /* Timeline */
+    .timeline-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .timeline-card { background: #fff; padding: 24px; border-radius: 14px; border: 1px solid var(--border-color); text-align: left; }
+    .timeline-card .badge { font-size: 11px; font-weight: 700; color: var(--green-subtle); background: var(--green-light); padding: 4px 10px; border-radius: 6px; display: inline-block; margin-bottom: 12px; }
+    .timeline-card h3 { font-size: 19px; color: var(--green-dark); margin-bottom: 6px; }
+    .timeline-card .action { font-size: 13px; font-weight: 600; color: var(--green-brand); margin-bottom: 6px; }
+    .timeline-card p { font-size: 13px; color: var(--text-muted); }
+    .warning-box { background: #FFFDF7; border: 1px solid #F6E05E; padding: 16px 20px; border-radius: 10px; color: #744210; font-size: 13px; margin-top: 20px; text-align: left; }
+    /* Articles */
+    .articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .article-card { background: #fff; border-radius: 14px; border: 1px solid var(--border-color); overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; text-align: left; }
+    .article-card img { width: 100%; aspect-ratio: 16/10; object-fit: cover; }
+    .article-body { padding: 18px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+    .article-body h3 { font-size: 17px; color: var(--green-dark); margin: 6px 0 8px 0; line-height: 1.35; }
+    .article-body p { font-size: 12px; color: var(--text-muted); margin-bottom: 14px; }
+    /* FAQ */
+    .faq-list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+    .faq-item { background: #fff; border: 1px solid var(--border-color); border-radius: 10px; overflow: hidden; }
+    .faq-q { width: 100%; text-align: left; padding: 16px 20px; background: none; border: none; font-size: 15px; font-weight: 600; color: var(--green-dark); cursor: pointer; display: flex; justify-content: space-between; }
+    .faq-a { padding: 0 20px 16px 20px; font-size: 13px; color: var(--text-muted); display: none; line-height: 1.6; border-top: 1px solid rgba(0,0,0,0.04); padding-top: 10px; }
+    .faq-item.open .faq-a { display: block; }
+    /* Form */
+    .form-box { background: #fff; border-radius: 16px; border: 1px solid var(--border-color); padding: 32px; max-width: 720px; margin: 0 auto; text-align: left; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .form-group { margin-bottom: 14px; }
+    .form-group label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--green-dark); margin-bottom: 5px; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px 12px; font-size: 13px; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-cream); font-family: inherit; }
+    /* Bottom CTA & Footer */
+    .bottom-cta { background: #1E3A2B; color: #fff; padding: 60px 0; text-align: center; }
+    .bottom-cta h2 { font-size: 34px; color: #FAF9F5; margin-bottom: 12px; }
+    .bottom-cta p { font-size: 14px; color: #D4E2D8; margin-bottom: 24px; }
+    footer { background: #14261C; color: #D8E4DC; padding: 50px 0 24px 0; font-size: 13px; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 30px; margin-bottom: 30px; }
+    @media (max-width: 860px) {
+      .hero-grid, .pillars-grid, .concern-grid, .timeline-grid, .articles-grid, .product-box, .footer-grid, .form-row { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. HEADER -->
+  <header>
+    <div class="container header-inner">
+      <div class="brand-logo serif">VEDERA SKINCARE</div>
+      <nav class="nav-links">
+        <a href="#home">Trang chủ</a>
+        <a href="#about">Về Vedera</a>
+        <a href="#product">Sản phẩm</a>
+        <a href="#knowledge">Kiến thức</a>
+        <a href="#how-to-use">Hướng dẫn</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Liên hệ</a>
+      </nav>
+      <a href="#contact" class="btn btn-primary" style="padding: 8px 16px; font-size: 12px;">Tư vấn skincare</a>
+    </div>
+  </header>
+
+  <!-- 2. HERO -->
+  <section class="py-sec" id="home">
+    <div class="container hero-grid">
+      <div>
+        <div class="kicker">Pure Nature — True You · Skincare thuần chay minh bạch</div>
+        <h1 class="serif">CHĂM DA LÀNH TÍNH, CHỌN SKINCARE MINH BẠCH</h1>
+        <p>Vedera Skincare hướng đến những lựa chọn chăm sóc da thuần chay, minh bạch và phù hợp với routine hiện đại.</p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="#product" class="btn btn-primary">KHÁM PHÁ SẢN PHẨM</a>
+          <a href="#contact" class="btn btn-secondary">NHẬN TƯ VẤN</a>
+        </div>
+      </div>
+      <div>
+        <div class="hero-card">
+          <img src="https://ais-dev-r5zufwpbxuzpsdhb76x4gy-781681840585.asia-east1.run.app/assets/vedera_serum_hero_1790301077061.jpg" alt="Vedera Vitamin C Serum 30ml">
+          <div style="margin-top:10px; font-size:13px; font-weight:700; color:var(--green-dark);" class="serif">VEDERA VITAMIN C SERUM – 30ml</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. VỀ VEDERA -->
+  <section class="py-sec" id="about" style="background: var(--bg-warm); border-top:1px solid var(--border-color); border-bottom:1px solid var(--border-color);">
+    <div class="container">
+      <div class="kicker">Về thương hiệu</div>
+      <h2 class="section-title serif">VEDERA – CHĂM DA TỪ NHỮNG ĐIỀU RÕ RÀNG</h2>
+      <p class="section-desc">Vedera hướng đến việc xây dựng trải nghiệm skincare dựa trên sự minh bạch, lựa chọn có trách nhiệm và thói quen chăm sóc da phù hợp.</p>
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <span>01</span>
+          <h3 class="serif">THUẦN CHAY</h3>
+          <p>Định hướng lựa chọn sản phẩm không sử dụng thành phần có nguồn gốc động vật.</p>
+        </div>
+        <div class="pillar-card">
+          <span>02</span>
+          <h3 class="serif">MINH BẠCH</h3>
+          <p>Thông tin sản phẩm cần được trình bày rõ ràng và dễ kiểm tra.</p>
+        </div>
+        <div class="pillar-card">
+          <span>03</span>
+          <h3 class="serif">KHÔNG THỬ NGHIỆM TRÊN ĐỘNG VẬT</h3>
+          <p>Thể hiện cam kết trách nhiệm của thương hiệu.</p>
+        </div>
+        <div class="pillar-card">
+          <span>04</span>
+          <h3 class="serif">LÀNH TÍNH</h3>
+          <p>Hướng đến trải nghiệm dịu nhẹ và phù hợp với routine chăm sóc da.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. VẤN ĐỀ KHÁCH HÀNG -->
+  <section class="py-sec">
+    <div class="container section-center">
+      <div class="kicker">Nỗi băn khoăn của Gen Z</div>
+      <h2 class="section-title serif">SKINCARE MỚI – BẠN CÓ ĐANG LO NHỮNG ĐIỀU NÀY?</h2>
+      <div class="concern-grid">
+        <div class="concern-card">
+          <div class="num">01</div>
+          <h4>Không biết sản phẩm có phù hợp với da hay không.</h4>
+          <p>Mỗi làn da có cấu trúc và độ dày sừng khác nhau, rất khó để đoán biết độ dung nạp.</p>
+        </div>
+        <div class="concern-card">
+          <div class="num">02</div>
+          <h4>Lo lắng da phản ứng khi thử sản phẩm mới.</h4>
+          <p>Nỗi sợ châm chích, nổi mụn bí tắc khiến nhiều bạn e ngại khi thêm serum dưỡng sáng.</p>
+        </div>
+        <div class="concern-card">
+          <div class="num">03</div>
+          <h4>Khó kiểm tra thông tin thành phần.</h4>
+          <p>Thuật ngữ khoa học dày đặc làm người dùng hoang mang khi muốn tìm hiểu thực tế.</p>
+        </div>
+        <div class="concern-card">
+          <div class="num">04</div>
+          <h4>Dễ bị ảnh hưởng bởi quảng cáo và review.</h4>
+          <p>Những cam kết hiệu quả thần tốc sau 3 ngày tạo kỳ vọng sai lệch và dễ gây quá tải da.</p>
+        </div>
+      </div>
+      <div class="transition-box">
+        <h3 class="serif">Vedera muốn giúp bạn bắt đầu skincare một cách có cơ sở hơn.</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. SẢN PHẨM -->
+  <section class="py-sec" id="product" style="background: var(--bg-warm); border-top:1px solid var(--border-color);">
+    <div class="container">
+      <div class="section-center">
+        <div class="kicker">Sản phẩm nổi bật</div>
+        <h2 class="section-title serif">VEDERA VITAMIN C SERUM</h2>
+        <p class="section-desc">Dung tích: <strong>30ml</strong> · Công thức thuần chay hỗ trợ dưỡng sáng đều màu và bảo vệ da.</p>
+      </div>
+      <div class="product-box">
+        <div class="product-media">
+          <img src="https://ais-dev-r5zufwpbxuzpsdhb76x4gy-781681840585.asia-east1.run.app/assets/vedera_serum_hero_1790301077061.jpg" alt="Serum Vitamin C">
+        </div>
+        <div class="product-info">
+          <div>
+            <h3 class="serif" style="font-size:26px; color:var(--green-dark);">VEDERA VITAMIN C SERUM – 30ml</h3>
+            <p style="font-size:13px; color:var(--text-muted); margin:8px 0 16px 0;">Serum được phát triển cân bằng giữa hiệu quả làm sáng đều màu da và sự dịu nhẹ cho người trẻ.</p>
+            <div class="tabs-nav">
+              <button class="tab-btn active" onclick="switchTab(event, 'tab-ing')">Thành phần</button>
+              <button class="tab-btn" onclick="switchTab(event, 'tab-usage')">Cách dùng</button>
+              <button class="tab-btn" onclick="switchTab(event, 'tab-target')">Đối tượng</button>
+              <button class="tab-btn" onclick="switchTab(event, 'tab-note')">Lưu ý</button>
+            </div>
+            <div id="tab-ing" class="tab-pane active">
+              <ul>
+                <li>Dẫn xuất Vitamin C ổn định dịu nhẹ [BỔ SUNG THÔNG TIN SẢN PHẨM]</li>
+                <li>Chiết xuất Rau má & Nghệ tự nhiên hỗ trợ làm dịu, phục hồi [BỔ SUNG THÔNG TIN SẢN PHẨM]</li>
+                <li>Hyaluronic Acid cấp ẩm đa tầng [BỔ SUNG THÔNG TIN SẢN PHẨM]</li>
+                <li>Hệ dung môi thực vật lành tính, không cồn khô, không paraben [BỔ SUNG THÔNG TIN SẢN PHẨM]</li>
+              </ul>
+            </div>
+            <div id="tab-usage" class="tab-pane">
+              <ol style="padding-left:16px;">
+                <li>Làm sạch da bằng sữa rửa mặt và cân bằng nhẹ với toner.</li>
+                <li>Lấy 2-3 giọt serum thoa đều lên mặt và vùng cổ.</li>
+                <li>Vỗ nhẹ 30-45 giây cho tinh chất thẩm thấu.</li>
+                <li>Khóa ẩm bằng kem dưỡng và luôn dùng kem chống nắng vào ban ngày.</li>
+              </ol>
+            </div>
+            <div id="tab-target" class="tab-pane">
+              <ul>
+                <li>Nữ giới độ tuổi 18–27, sinh viên và người mới đi làm.</li>
+                <li>Người muốn cải thiện da xỉn màu hoặc vết thâm sau mụn.</li>
+                <li>Người tìm kiếm sản phẩm thuần chay, minh bạch thành phần.</li>
+              </ul>
+            </div>
+            <div id="tab-note" class="tab-pane">
+              <ul>
+                <li>Luôn thực hiện patch-test ở vùng xương hàm 24-48h trước khi dùng toàn mặt.</li>
+                <li>Bảo quản nơi khô ráo, tránh ánh sáng trực tiếp.</li>
+              </ul>
+            </div>
+          </div>
+          <div style="display:flex; gap:10px; margin-top:20px;">
+            <a href="#how-to-use" class="btn btn-primary" style="flex:1;">XEM CHI TIẾT</a>
+            <a href="#contact" class="btn btn-secondary" style="flex:1;">TƯ VẤN SẢN PHẨM</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. HOW TO USE -->
+  <section class="py-sec" id="how-to-use">
+    <div class="container section-center">
+      <div class="kicker">Quy trình an toàn cho da</div>
+      <h2 class="section-title serif">3 BƯỚC ĐỂ BẮT ĐẦU</h2>
+      <div class="timeline-grid">
+        <div class="timeline-card">
+          <div class="badge">BƯỚC 01</div>
+          <h3 class="serif">KIỂM TRA</h3>
+          <div class="action">Đọc thành phần, hướng dẫn sử dụng và thông tin sản phẩm.</div>
+          <p>Tìm hiểu kỹ bảng thành phần và hạn mở nắp PAO trước khi dùng.</p>
+        </div>
+        <div class="timeline-card">
+          <div class="badge">BƯỚC 02</div>
+          <h3 class="serif">TEST</h3>
+          <div class="action">Thử một lượng nhỏ trước khi đưa sản phẩm vào routine.</div>
+          <p>Chấm lượng nhỏ serum lên vùng xương hàm trong 24-48 giờ để quan sát.</p>
+        </div>
+        <div class="timeline-card">
+          <div class="badge">BƯỚC 03</div>
+          <h3 class="serif">THEO DÕI</h3>
+          <div class="action">Quan sát phản ứng của da trong quá trình sử dụng.</div>
+          <p>Bắt đầu 2-3 lần/tuần trước khi nâng dần lên sử dụng đều đặn mỗi ngày.</p>
+        </div>
+      </div>
+      <div class="warning-box">
+        <strong>LƯU Ý QUAN TRỌNG:</strong> Mỗi làn da có thể phản ứng khác nhau. Không có sản phẩm skincare nào đảm bảo phù hợp với mọi người. Nếu xuất hiện phản ứng bất thường, hãy ngừng sử dụng và cân nhắc tham khảo chuyên gia.
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. KIẾN THỨC SKINCARE (5 BÀI VIẾT) -->
+  <section class="py-sec" id="knowledge" style="background: var(--bg-warm); border-top:1px solid var(--border-color);">
+    <div class="container">
+      <div class="section-center">
+        <div class="kicker">Cẩm nang chăm sóc da</div>
+        <h2 class="section-title serif">HIỂU DA TRƯỚC KHI CHỌN SKINCARE</h2>
+      </div>
+      <div class="articles-grid">
+        <div class="article-card">
+          <img src="https://ais-dev-r5zufwpbxuzpsdhb76x4gy-781681840585.asia-east1.run.app/assets/vedera_skincare_routine_1790301108909.jpg" alt="Bài 1">
+          <div class="article-body">
+            <div>
+              <div style="font-size:11px; color:var(--green-subtle);">Kiến thức cơ bản · 4 phút đọc</div>
+              <h3 class="serif">4 bước kiểm tra skincare mới cho da nhạy cảm</h3>
+              <p>Cách tiếp cận có cơ sở khoa học giúp bạn tránh kích ứng khi thử bất kỳ sản phẩm dưỡng da mới nào.</p>
+            </div>
+            <a href="#how-to-use" style="font-size:12px; font-weight:600; color:var(--green-brand);">Đọc thêm →</a>
+          </div>
+        </div>
+        <div class="article-card">
+          <img src="https://ais-dev-r5zufwpbxuzpsdhb76x4gy-781681840585.asia-east1.run.app/assets/vedera_product_collection_1790301087019.jpg" alt="Bài 2">
+          <div class="article-body">
+            <div>
+              <div style="font-size:11px; color:var(--green-subtle);">Xây dựng routine · 3 phút đọc</div>
+              <h3 class="serif">Làm thế nào để thêm sản phẩm mới vào routine?</h3>
+              <p>Nguyên tắc giãn cách tần suất và thứ tự layer để da thích ứng êm ái mà không bị quá tải hoạt chất.</p>
+            </div>
+            <a href="#how-to-use" style="font-size:12px; font-weight:600; color:var(--green-brand);">Đọc thêm →</a>
+          </div>
+        </div>
+        <div class="article-card">
+          <img src="https://ais-dev-r5zufwpbxuzpsdhb76x4gy-781681840585.asia-east1.run.app/assets/vedera_serum_hero_1790301077061.jpg" alt="Bài 3">
+          <div class="article-body">
+            <div>
+              <div style="font-size:11px; color:var(--green-subtle);">Thành phần học · 5 phút đọc</div>
+              <h3 class="serif">Vitamin C trong routine skincare</h3>
+              <p>Hiểu đúng vai trò chống oxy hóa, hỗ trợ làm sáng và cách bảo quản serum Vitamin C không bị oxy hóa nhanh.</p>
+            </div>
+            <a href="#product" style="font-size:12px; font-weight:600; color:var(--green-brand);">Đọc thêm →</a>
+          </div>
+        </div>
+        <div class="article-card">
+          <img src="https://ais-dev-r5zufwpbxuzpsdhb76x4gy-781681840585.asia-east1.run.app/assets/vedera_skincare_routine_1790301108909.jpg" alt="Bài 4">
+          <div class="article-body">
+            <div>
+              <div style="font-size:11px; color:var(--green-subtle);">Tiêu dùng thông minh · 4 phút đọc</div>
+              <h3 class="serif">Những thông tin cần kiểm tra trước khi mua mỹ phẩm</h3>
+              <p>Cẩm nang người tiêu dùng thông thái: kiểm tra hạn dùng, chứng nhận, bảng thành phần và uy tín nhãn hàng.</p>
+            </div>
+            <a href="#about" style="font-size:12px; font-weight:600; color:var(--green-brand);">Đọc thêm →</a>
+          </div>
+        </div>
+        <div class="article-card">
+          <img src="https://ais-dev-r5zufwpbxuzpsdhb76x4gy-781681840585.asia-east1.run.app/assets/vedera_cleanser_texture_1790301096689.jpg" alt="Bài 5">
+          <div class="article-body">
+            <div>
+              <div style="font-size:11px; color:var(--green-subtle);">An toàn da liễu · 3 phút đọc</div>
+              <h3 class="serif">Vì sao nên test sản phẩm trước khi sử dụng?</h3>
+              <p>Giải thích cơ chế miễn dịch tự nhiên của da và tại sao việc thử nghiệm trước giúp ngăn chặn kích ứng diện rộng.</p>
+            </div>
+            <a href="#how-to-use" style="font-size:12px; font-weight:600; color:var(--green-brand);">Đọc thêm →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. VÌ SAO CHỌN VEDERA -->
+  <section class="py-sec" id="why-vedera">
+    <div class="container section-center">
+      <div class="kicker">Cam kết thực tế</div>
+      <h2 class="section-title serif">VÌ SAO CHỌN VEDERA?</h2>
+      <p class="section-desc">Không dùng các câu phóng đại như "số 1", "hiệu quả 100%" hay "an toàn tuyệt đối". Chúng tôi tập trung vào 3 giá trị có thể kiểm chứng:</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px;">
+        <div class="pillar-card" style="text-align:left;">
+          <span>01</span>
+          <h3 class="serif">THÔNG TIN RÕ RÀNG</h3>
+          <p>Thông tin sản phẩm được trình bày dễ hiểu, minh bạch nguồn gốc và nồng độ dẫn xuất.</p>
+        </div>
+        <div class="pillar-card" style="text-align:left;">
+          <span>02</span>
+          <h3 class="serif">ĐỊNH HƯỚNG THUẦN CHAY</h3>
+          <p>Thể hiện rõ định hướng của thương hiệu, không dùng thành phần động vật và không thử nghiệm trên động vật.</p>
+        </div>
+        <div class="pillar-card" style="text-align:left;">
+          <span>03</span>
+          <h3 class="serif">TẬP TRUNG VÀO TRẢI NGHIỆM</h3>
+          <p>Khuyến khích khách hàng hiểu làn da và theo dõi phản ứng khi sử dụng sản phẩm.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. REVIEW -->
+  <section class="py-sec" style="background: var(--bg-warm); border-top:1px solid var(--border-color);">
+    <div class="container section-center">
+      <div style="background:#fff; border-radius:14px; border:1px solid var(--border-color); padding:32px; max-width:680px; margin:0 auto;">
+        <div class="kicker">Đánh giá minh bạch</div>
+        <h3 class="serif" style="font-size:20px; color:var(--green-dark); margin-bottom:8px;">FEEDBACK SẼ ĐƯỢC CẬP NHẬT TỪ KHÁCH HÀNG THỰC TẾ.</h3>
+        <p style="font-size:13px; color:var(--text-muted);">Chúng tôi cam kết không tạo review giả mạo để bảo vệ sự trung thực cao nhất với người tiêu dùng.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. FAQ ACCORDION -->
+  <section class="py-sec" id="faq">
+    <div class="container">
+      <div class="section-center">
+        <div class="kicker">Giải đáp thắc mắc</div>
+        <h2 class="section-title serif">CÂU HỎI THƯỜNG GẶP (FAQ)</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item open">
+          <button class="faq-q" onclick="toggleFaq(this)"><span>Serum Vitamin C phù hợp với ai?</span><span>▾</span></button>
+          <div class="faq-a">Serum Vedera Vitamin C phù hợp với người trẻ (18–27 tuổi, sinh viên, người mới đi làm) muốn cải thiện da xỉn màu và mờ thâm mụn.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span>Da nhạy cảm có nên thử sản phẩm mới không?</span><span>▾</span></button>
+          <div class="faq-a">Da nhạy cảm hoàn toàn có thể dùng nếu bạn chọn công thức lành tính không cồn khô, không hương liệu và luôn patch-test trước.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span>Có cần test trước khi sử dụng không?</span><span>▾</span></button>
+          <div class="faq-a">Rất cần thiết. Hãy thoa lượng nhỏ ở vùng xương hàm 24-48 giờ trước khi bôi lên toàn mặt.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span>Serum được sử dụng ở bước nào?</span><span>▾</span></button>
+          <div class="faq-a">Sử dụng sau bước rửa mặt và toner, trước bước kem dưỡng ẩm. Vào ban ngày luôn thoa kèm kem chống nắng.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span>Nên sử dụng sản phẩm như thế nào?</span><span>▾</span></button>
+          <div class="faq-a">Mỗi lần dùng 2-3 giọt, vỗ nhẹ cho thấm. Tuần đầu chỉ nên dùng 2-3 lần để da làm quen.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span>Nếu da có phản ứng bất thường thì sao?</span><span>▾</span></button>
+          <div class="faq-a">Rửa sạch mặt với nước mát, ngừng sử dụng sản phẩm ngay và theo dõi da.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span>Vedera có định hướng thuần chay như thế nào?</span><span>▾</span></button>
+          <div class="faq-a">100% gốc thực vật, cam kết không thử nghiệm trên động vật và minh bạch bảng thành phần.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. FORM TƯ VẤN -->
+  <section class="py-sec" id="contact" style="background: var(--bg-warm); border-top:1px solid var(--border-color);">
+    <div class="container section-center">
+      <div class="kicker">Tư vấn cá nhân hóa</div>
+      <h2 class="section-title serif">CHƯA BIẾT BẮT ĐẦU TỪ ĐÂU?</h2>
+      <p class="section-desc">Để lại thông tin để Vedera hỗ trợ bạn tìm hiểu sản phẩm và routine phù hợp hơn.</p>
+
+      <div class="form-box">
+        <form onsubmit="handleFormSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Họ và tên *</label>
+              <input type="text" required placeholder="Nguyễn Phương Thảo">
+            </div>
+            <div class="form-group">
+              <label>Số điện thoại *</label>
+              <input type="tel" required placeholder="0912 345 678">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email *</label>
+            <input type="email" required placeholder="phuongthao@gmail.com">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Tình trạng da</label>
+              <select>
+                <option>Da dầu thiếu ẩm</option>
+                <option>Da hỗn hợp có thâm mụn</option>
+                <option>Da khô nhạy cảm</option>
+                <option>Da thường khỏe mạnh</option>
+                <option>Da đang kích ứng</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Mục tiêu chăm sóc da</label>
+              <select>
+                <option>Dưỡng sáng & mờ thâm mụn</option>
+                <option>Làm dịu da mẩn đỏ</option>
+                <option>Bảo vệ da chống oxy hóa ban ngày</option>
+                <option>Routine tối giản lành tính</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Sản phẩm đang sử dụng</label>
+            <input type="text" placeholder="Sữa rửa mặt, kem chống nắng hiện tại...">
+          </div>
+          <div class="form-group">
+            <label>Nội dung cần tư vấn</label>
+            <textarea rows="3" placeholder="Chia sẻ băn khoăn về làn da của bạn..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%; padding:14px;">NHẬN TƯ VẤN</button>
+        </form>
+        <div style="margin-top:20px; font-size:12px; color:var(--text-muted); text-align:center;">
+          [DÁN LINK GOOGLE FORM VÀO ĐÂY NẾU DÙNG GOOGLE FORMS]
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. CTA CUỐI TRANG -->
+  <section class="bottom-cta">
+    <div class="container">
+      <div class="kicker" style="color:#A8C7B2;">Khởi đầu chu trình khoa học</div>
+      <h2 class="serif">HIỂU LÀN DA. CHỌN SKINCARE CÓ CƠ SỞ.</h2>
+      <p>Đồng hành cùng Vedera với những công thức thuần chay dịu nhẹ và bảng thành phần minh bạch.</p>
+      <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
+        <a href="#product" class="btn" style="background:#FAF9F5; color:#193225;">KHÁM PHÁ SẢN PHẨM</a>
+        <a href="#contact" class="btn" style="border:1px solid rgba(255,255,255,0.4); color:#fff;">NHẬN TƯ VẤN</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13. FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3 class="serif" style="color:#fff; font-size:22px; margin-bottom:8px;">VEDERA SKINCARE</h3>
+          <p style="color:#A5BDB0; line-height:1.6;">Skincare thuần chay – minh bạch – hướng đến trải nghiệm chăm sóc da có cơ sở.</p>
+        </div>
+        <div>
+          <h4 style="color:#fff; margin-bottom:10px;">Điều hướng</h4>
+          <ul style="list-style:none; line-height:2;">
+            <li><a href="#home">Trang chủ</a></li>
+            <li><a href="#about">Về Vedera</a></li>
+            <li><a href="#product">Sản phẩm</a></li>
+            <li><a href="#knowledge">Kiến thức</a></li>
+            <li><a href="#how-to-use">Hướng dẫn</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Liên hệ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color:#fff; margin-bottom:10px;">Kết nối</h4>
+          <p>Facebook: [CẬP NHẬT FANPAGE VEDERA]</p>
+          <p>TikTok: [CẬP NHẬT KÊNH TIKTOK VEDERA]</p>
+          <p>Email: support@vederaskincare.vn</p>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:20px; text-align:center; font-size:12px; color:#7B9586;">
+        © 2026 Vedera Skincare. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function switchTab(evt, tabId) {
+      const parent = evt.target.closest('.product-info');
+      parent.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      parent.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+      evt.target.classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      item.classList.toggle('open');
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      alert('Cảm ơn bạn! Vedera đã nhận được thông tin và sẽ hỗ trợ bạn trong thời gian sớm nhất.');
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
